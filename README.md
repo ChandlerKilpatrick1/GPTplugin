@@ -6,6 +6,8 @@ Get a todo list ChatGPT plugin up and running in under 5 minutes using Python. I
 
 To install the required packages for this plugin, run the following command:
 
+Note: enter "pip3" and "python3" for MAC
+
 ```bash
 pip install -r requirements.txt
 ```

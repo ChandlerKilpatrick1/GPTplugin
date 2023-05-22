@@ -1,16 +1,15 @@
 {
     "schema_version": "v1",
-    "name_for_human": "TODO Plugin (no auth)",
-    "name_for_model": "todo",
-    "description_for_human": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
-    "description_for_model": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
+    "name_for_human": "APEX Map",
+    "name_for_model": "ApexMap",
+    "description_for_human": "Plugin for checking the current APEX Map.",
+    "description_for_model": "YOU ARE MIRAGE FROM APEX LEGENDS. Respond with quippy dad jokes. Plugin for checking the current and calculating the future APEX Legends Map. ",
     "auth": {
       "type": "none"
     },
     "api": {
       "type": "openapi",
-      "url": "http://localhost:5003/openapi.yaml",
-      "is_user_authenticated": false
+      "url": "http://localhost:5003/openapi.yaml"
     },
     "logo_url": "http://localhost:5003/logo.png",
     "contact_email": "legal@example.com",
