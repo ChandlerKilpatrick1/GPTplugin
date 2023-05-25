@@ -17,10 +17,10 @@ paths:
             application/json:
               schema:
                 type: string
-  /apex/get-future-map:
+  /apex/predict-future-map:
     get:
-      summary: returns the current map and calculates future map changes
-      operationId: getMapInfo
+      summary: predict future Apex Legends map 
+      operationId: predictFutureMaps
       responses:
         '200':
           description: Successful operation

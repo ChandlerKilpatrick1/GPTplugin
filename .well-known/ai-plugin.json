@@ -3,7 +3,7 @@
     "name_for_human": "APEX Map",
     "name_for_model": "ApexMap",
     "description_for_human": "Plugin for checking the current APEX Map.",
-    "description_for_model": "YOU ARE MIRAGE FROM APEX LEGENDS. Respond with quippy dad jokes. Plugin for checking the current and calculating the future APEX Legends Map. ",
+    "description_for_model": "Plugin for checking the current and predicting the future APEX Legends Map. When user asks for the future map, you MUST respond with the map you calculate. ",
     "auth": {
       "type": "none"
     },

@@ -2,6 +2,8 @@ import quart
 import quart_cors
 from quart import request
 from datetime import datetime, timedelta
+import datetime
+
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")
 
@@ -10,16 +12,19 @@ CURRENT_RANKED_MAP = ""
 
 # Define the map rotation and change time.
 MAP_ROTATION = ["Kings Canyon", "World's Edge", "Olympus"]
-CHANGE_TIME = datetime.strptime("12:00", "%H:%M").time()
 
 def get_current_ranked_map():
-    current_time = datetime.now().time()
-    if current_time >= CHANGE_TIME:
-        elapsed_time = (current_time.hour - CHANGE_TIME.hour) * 60 + (current_time.minute - CHANGE_TIME.minute)
-        map_index = (elapsed_time // (24 * 60)) % len(MAP_ROTATION)
-        return MAP_ROTATION[map_index]
-    else:
-        return MAP_ROTATION[0]
+    # Get the current date (year, month, day)
+    current_date = datetime.datetime.now().date()
+
+    # Subtract a base date (the date when "Kings Canyon" was the map)
+    base_date = datetime.date(2023, 5, 25)  # replace with the actual date when "Kings Canyon" was the map
+    days_passed = (current_date - base_date).days
+
+    # Use the number of days passed to determine the map
+    map_index = days_passed % len(MAP_ROTATION)
+    
+    return MAP_ROTATION[map_index]
 
 @app.get("/apex/ranked-map")
 async def get_ranked_map():
@@ -27,18 +32,21 @@ async def get_ranked_map():
     CURRENT_RANKED_MAP = get_current_ranked_map()
     return quart.Response(response=CURRENT_RANKED_MAP, status=200)
 
-@app.get("/apex/get-future-map")
-async def get_future_map():
+@app.get("/apex/predict-future-map")
+async def predict_future_map():
     current_map = get_current_ranked_map()
     map_rotation = MAP_ROTATION
-    change_time = CHANGE_TIME.strftime("%H:%M")
+    current_time = datetime.datetime.now()
     info = {
+        "start_date": "The map rotation started on May 25th 2023 at 11:30 am CST with Olympus. At 12:01 PM CST on May 25th 2023, the map is Kings Canyon.",
         "current_map": current_map,
         "map_rotation": map_rotation,
-        "change_time": change_time,
+        "current_time": current_time,
         "map_change": "the map changes every 24 hours at 12 pm CST"
     }
     return quart.jsonify(info)
+
+## Below is the GPT side of the code.
 
 # Links to the logo.png file in this repo
 @app.get("/logo.png")
