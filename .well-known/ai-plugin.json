@@ -2,7 +2,7 @@
     "schema_version": "v1",
     "name_for_human": "APEX Map",
     "name_for_model": "ApexMap",
-    "description_for_human": "Plugin for checking the current APEX Map.",
+    "description_for_human": "Checking the current APEX Legends Ranked Map.",
     "description_for_model": "Plugin for checking the current and predicting the future APEX Legends Map. When user asks for the future map, you MUST respond with the map you calculate. ",
     "auth": {
       "type": "none"
@@ -11,7 +11,7 @@
       "type": "openapi",
       "url": "http://localhost:5003/openapi.yaml"
     },
-    "logo_url": "http://localhost:5003/logo.png",
+    "logo_url": "http://localhost:5003/logo.jpg",
     "contact_email": "legal@example.com",
     "legal_info_url": "http://example.com/legal"
   }

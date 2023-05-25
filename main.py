@@ -49,10 +49,10 @@ async def predict_future_map():
 ## Below is the GPT side of the code.
 
 # Links to the logo.png file in this repo
-@app.get("/logo.png")
+@app.get("/logo.jpg")
 async def plugin_logo():
-    filename = 'logo.png'
-    return await quart.send_file(filename, mimetype='image/png')
+    filename = 'logo.jpg'
+    return await quart.send_file(filename, mimetype='image/jpg')
 
 @app.get("/.well-known/ai-plugin.json")
 async def plugin_manifest():
