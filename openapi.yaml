@@ -4,7 +4,7 @@ info:
   description: Plugin to identify the current Apex Legends ranked map.
   version: 1.0.0
 servers:
-  - url: http://localhost:5003
+  - url: https://dt1m15-5003.csb.app
 paths:
   /apex/ranked-map:
     get:
